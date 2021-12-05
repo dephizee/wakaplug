@@ -1,0 +1,21 @@
+.container {
+  padding: 0 2rem;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fafafa;
+  background-image: url("/auth-bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}

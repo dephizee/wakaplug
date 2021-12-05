@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
+import { ButtonStyled } from '../components/buttons.style'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -18,8 +20,12 @@ const Home: NextPage = () => {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
+          Get started by editing Logging in
+          <Link href="login">
+            <a>
+              <code className={styles.code}><ButtonStyled>Login</ButtonStyled></code>
+            </a>
+          </Link>
         </p>
 
         <div className={styles.grid}>
