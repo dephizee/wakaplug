@@ -22,6 +22,12 @@ export const AuthSubHeaderStyled = styled.h5`
     text-align: center;  
     width: ${(props: {width?:string, lineHeight?:string}) => props.width || "auto"};
     line-height: ${(props) => props.lineHeight || "19.36px"};
+
+    @media (max-width: 600px) {
+        & {
+            text-align: left;  
+        }
+    }
     
 `;
 

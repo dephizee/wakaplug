@@ -31,6 +31,7 @@ export const AuthMainContainerStyled = styled.div`
     @media (max-width: 600px) {
         & {
             padding: 0 10%;
+            width: 100vw;
         }
     }
     
