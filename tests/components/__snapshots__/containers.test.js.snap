@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthContainer working 1`] = `
+<div
+  className="sc-bdvvtL cBlCT"
+>
+  Main container
+</div>
+`;

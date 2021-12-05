@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormContainer working 1`] = `
+<form
+  className="sc-gsDKAQ kpUtDf"
+>
+  <input
+    className="sc-bdvvtL eEqMGc"
+    minLength="1"
+  />
+</form>
+`;
+
+exports[`InputField working 1`] = `
+<input
+  className="sc-bdvvtL eEqMGc"
+  minLength="1"
+/>
+`;

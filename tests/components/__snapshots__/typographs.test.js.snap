@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthLabel working 1`] = `
+<label
+  className="sc-hKwDye WjGTI"
+>
+  2go
+</label>
+`;
+
+exports[`AuthSpan working 1`] = `
+<span
+  className="sc-iCfMLu heaqjd"
+>
+  Uber
+</span>
+`;
+
+exports[`AuthText working 1`] = `
+<p
+  className="sc-dkPtRN ceZDnr"
+>
+  LinkedIn
+</p>
+`;
+
+exports[`Header working 1`] = `
+<h4
+  className="sc-bdvvtL fNwMSt"
+>
+  Facebook
+</h4>
+`;
+
+exports[`LinkStyled working 1`] = `
+<span
+  className="sc-eCImPb hxoRsn"
+>
+  Youtube
+</span>
+`;
+
+exports[`LinkStyled working 2`] = `
+<a
+  className="sc-gKclnd iqcaJE"
+>
+  Tinder
+</a>
+`;
+
+exports[`PasswordToggle working 1`] = `
+<span
+  className="sc-jRQBWg fTKDDY"
+>
+  Bolt
+</span>
+`;
+
+exports[`Sub Header working 1`] = `
+<h5
+  className="sc-gsDKAQ hrCnWM"
+>
+  Twitter
+</h5>
+`;

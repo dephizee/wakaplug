@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
-export const InputField = styled.input`
+export const InputField = styled.input.attrs(( props ) => (
+    { 
+        minLength: props.minLength||'1',
+        // placeholder: props.placeholder||"write here..",
+    }
+    ))`
     font-weight: 500;
-    width: ${(props: {width?:string, height?:string}) => props.width || "100%"};
+    width: ${(props: {width?:string, height?:string, minLength?:string}) => props.width || "100%"};
     height: ${(props) => props.height || "50px"};
     background: #FFFFFF;
     border: 1px solid #EAEAEA;

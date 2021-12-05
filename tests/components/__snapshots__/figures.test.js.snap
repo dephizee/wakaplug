@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageStyle working 1`] = `
+<img
+  alt="..."
+  className="sc-bdvvtL iBHpXq"
+  src="/logo.png"
+/>
+`;
+
+exports[`RotatingImage working 1`] = `
+<img
+  alt="..."
+  className="sc-bdvvtL sc-gsDKAQ iBHpXq kXQgLb"
+  src="/logo.png"
+/>
+`;

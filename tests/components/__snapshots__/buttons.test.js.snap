@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonStyled working 1`] = `
+<button
+  className="sc-bdvvtL jdwahO"
+>
+  Hello Guys
+</button>
+`;
