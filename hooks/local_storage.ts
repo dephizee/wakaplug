@@ -11,7 +11,7 @@ export const useStateWithLocalStorage = (localStorageKey:string) => {
  
   return [value, setValue];
 };
-export const useStateWithLocalStorageToken = () => {
+export const useStateWithLocalStorageToken:any = () => {
     const [value, setValue] = useState(
         typeof window !== 'undefined'?(localStorage.getItem('app_token') || '') : ''
     );

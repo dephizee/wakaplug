@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 // import styles from '../../styles/Home.module.css'
-import { FormEvent, ReactElement, useState } from 'react'
+import { FormEvent, ReactElement, useEffect, useState } from 'react'
 import { AuthLayout } from '../../layouts/auth_layout'
 import { AuthContainerStyled, AuthMainContainerStyled, CustomRow, FlexRow,  } from '../../components/containers.style'
 import { AuthHeaderStyled, AuthLabelStyled, AuthSubHeaderStyled, SpanStyled, LinkStyled, AuthSpanStyled } from '../../components/typographs.style'
@@ -16,16 +16,24 @@ import { PasswordToggler } from '../../components/passwords'
 import Link from 'next/link'
 import { basicNetwokCall, handleResponse } from '../../network/cb'
 import { AuthEndPoint } from '../../network/endpoints'
-import { useStateWithLocalStorageToken } from '../../hooks/local_storage'
+import { useStateWithLocalStorage, useStateWithLocalStorageToken } from '../../hooks/local_storage'
+import { connect } from 'react-redux'
+import { setToken } from '../../redux/actions'
 
 
 
 
 
-const Login: NextPage = () => {
+const Login: NextPage = ({authData, setStoreToken}:any) => {
     const router = useRouter()
     const [loading, setLoading] = useState(false);
-    const [token,setToken] = useStateWithLocalStorageToken();
+    const [token,setLocalToken] = useStateWithLocalStorageToken();
+    const [localEmail,setLocalEmail] = useStateWithLocalStorage('tmp_email');
+    const [localVerificationCode,setVerificationCode] = useStateWithLocalStorage('tmp_verification_code');
+
+    useEffect(() => {
+        console.log('authData', authData)
+    }, [authData]);
 
     const handleSubmit = (event: any)=>{
         event.preventDefault();
@@ -39,7 +47,11 @@ const Login: NextPage = () => {
             console.log('jsonResponse', jsonResponse)
             handleResponse(jsonResponse)
             if(jsonResponse.meta.status_code === 200){
-                setToken(jsonResponse.meta.token)
+                setLocalToken(jsonResponse.meta.token)
+                // setStoreToken(jsonResponse.meta.token)
+                setLocalEmail(jsonResponse.data.email)
+                setVerificationCode(jsonResponse.data.verificationCode)
+
                 router.push('/dashboard')
                 
             }    
@@ -114,6 +126,19 @@ Login.getPageLayout = (page : ReactElement)=>{
     return  <AuthLayout>
               {page}
             </AuthLayout>
-  }
+}
 
-export default Login
+const mapStateToProps = (state:any) => {
+    return {
+        authData: state.authData
+    }
+}
+
+const mapDispatchToProps = (dispatch:any) => {
+    return {
+        setStoreToken: (token:string) => dispatch(setToken(token))
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -4,8 +4,8 @@ import swal from "sweetalert";
 export const basicNetwokCall = (endpoint : {url:string, method: string}, formdata: null|FormData, extraHeaders:{} ={}) => {
     const data = new URLSearchParams();
     if(formdata){
-        for (const pair of formdata) {
-            data.append(pair[0], pair[1]);
+        for (const pair of formdata.entries()) {
+            data.append(pair[0], pair[1].toString());
         }
     }
     
