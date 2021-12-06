@@ -29,14 +29,17 @@ const ResetPassword: NextPage = () => {
       setLoading(true);
       const token_obj = {'x-access-token' : token}
       const formData = new FormData(event.target);
+      if(typeof window !== 'undefined'){
+        formData.append('redirectUrl', `${window.location.origin}/reset-password/new`)
+      }
+
       basicNetwokCall(AuthEndPoint.sendResetPassword, formData, token_obj).then(response=>{
           setLoading(false);
           return response.json()
       }).then((jsonResponse)=>{
-          console.log('jsonResponse', jsonResponse)
           handleResponse(jsonResponse)
           if(jsonResponse.meta.status_code === 200){
-            router.push('/reset-password/new')
+            // router.push('/reset-password/new')
             setLocalEmail(jsonResponse.data.email)
           }    
       })

@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { FormEvent, ReactElement, useState } from 'react'
+import React, { FormEvent, ReactElement, useEffect, useState } from 'react'
 import { ButtonStyled } from '../../components/buttons.style'
 import { AuthContainerStyled, AuthMainContainerStyled } from '../../components/containers.style'
 import { ImageStyle, RotatingImage } from '../../components/figures.style'
@@ -22,6 +22,18 @@ const VerifyEmail : NextPage = (props: Props) => {
     const router = useRouter()
     const [loading, setLoading] = useState(false);
     const [token,setToken] = useStateWithLocalStorageToken();
+
+    const {params} = router.query;
+    
+    
+    useEffect(() => {
+        if( typeof window !== 'undefined' ){
+            if(params && params.length !== 2){
+                router.push('/');
+            }
+            
+        }
+    }, [params, router]);
 
     const handleSubmit = (event: any)=>{
         event.preventDefault();

@@ -15,6 +15,10 @@ export const AuthEndPoint = {
         url : `${hostURL}/verifyCode`,
         method : `POST`
     },
+    verifyLink : {
+        url : `${hostURL}/verify-link`,
+        method : `POST`
+    },
     sendVerification : {
         url : `${hostURL}/sendVerification`,
         method : `POST`

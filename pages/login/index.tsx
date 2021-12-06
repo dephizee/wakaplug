@@ -29,7 +29,6 @@ const Login: NextPage = ({authData, setStoreToken}:any) => {
     const [loading, setLoading] = useState(false);
     const [token,setLocalToken] = useStateWithLocalStorageToken();
     const [localEmail,setLocalEmail] = useStateWithLocalStorage('tmp_email');
-    const [localVerificationCode,setVerificationCode] = useStateWithLocalStorage('tmp_verification_code');
 
     useEffect(() => {
         console.log('authData', authData)
@@ -48,9 +47,7 @@ const Login: NextPage = ({authData, setStoreToken}:any) => {
             handleResponse(jsonResponse)
             if(jsonResponse.meta.status_code === 200){
                 setLocalToken(jsonResponse.meta.token)
-                // setStoreToken(jsonResponse.meta.token)
                 setLocalEmail(jsonResponse.data.email)
-                setVerificationCode(jsonResponse.data.verificationCode)
 
                 router.push('/dashboard')
                 

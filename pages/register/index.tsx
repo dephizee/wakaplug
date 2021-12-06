@@ -29,16 +29,24 @@ const Register: NextPage = () => {
         if(loading) return;
         setLoading(true);
         const formData = new FormData(event.target);
+        if(typeof window !== 'undefined'){
+            formData.append('verifyRedirectUrl', `${window.location.origin}/verify-email`)
+          }
+        
+        formData.append('displayName', ( new Date() ).getTime().toString());
         basicNetwokCall(AuthEndPoint.register, formData).then(response=>{
             setLoading(false);
             return response.json()
         }).then((jsonResponse)=>{
             console.log('jsonResponse', jsonResponse)
-            handleResponse(jsonResponse)
+            
             if(jsonResponse.meta.status_code === 200){
+                handleResponse(jsonResponse, "Please visit your email to complete registration")
                 setToken(jsonResponse.meta.token)
-                router.push('/verify-email')
-            }    
+                router.push('/login')
+            }else{
+                handleResponse(jsonResponse)
+            }   
         })
         
         
@@ -64,7 +72,7 @@ const Register: NextPage = () => {
                 <AuthLabelStyled>
                     Brand or Event Organizer
                 </AuthLabelStyled>
-                <InputField name="name" required placeholder="Enter brand or event organizer name"/>
+                <InputField name="username" required placeholder="Enter brand or event organizer name"/>
                 <AuthLabelStyled>
                     Email Address
                 </AuthLabelStyled>

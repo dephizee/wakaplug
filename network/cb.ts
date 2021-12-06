@@ -23,10 +23,10 @@ export const basicNetwokCall = (endpoint : {url:string, method: string}, formdat
     return fetch(`${endpoint.url}`, requestOptions)
 }
 
-export const handleResponse = (response:any) => {
+export const handleResponse = (response:any, msg:string ='') => {
     let hasError = response.meta.status_code !==200;
     swal({
-        text: `${hasError?response.meta.error.message:''}`,
+        text: `${hasError?response.meta.error.message:msg}`,
         icon: `${hasError?'info':'success'}`,
         timer: 3000,
       });
