@@ -58,7 +58,7 @@ exports[`PasswordToggle working 1`] = `
 
 exports[`Sub Header working 1`] = `
 <h5
-  className="sc-gsDKAQ hrCnWM"
+  className="sc-gsDKAQ jGIkdn"
 >
   Twitter
 </h5>
